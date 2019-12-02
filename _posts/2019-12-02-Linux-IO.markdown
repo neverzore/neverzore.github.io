@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Linux I\O 学习!"
+title:  "Linux IO"
 date:   2019-12-02 19:09:35 +0800
 categories: Linux
 ---
