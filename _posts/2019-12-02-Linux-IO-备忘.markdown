@@ -1,7 +1,6 @@
 ---
 layout: post
-title:  "Linux IO"
-date:   2019-12-02 19:09:35 +0800
+title:  "Linux IO 备忘"
 categories: Linux
 ---
 # Linux I/O 优化

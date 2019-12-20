@@ -1,7 +1,6 @@
 ---
 layout: post
 title:  "Linux CGroup 备忘"
-date:   2019-12-12 22:52:35 +0800
 categories: Linux
 ---
 # Linux CGroup

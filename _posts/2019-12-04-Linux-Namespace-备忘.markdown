@@ -1,7 +1,6 @@
 ---
 layout: post
-title:  "Linux Namespace"
-date:   2019-12-04 19:09:35 +0800
+title:  "Linux Namespace 备忘"
 categories: Linux
 ---
 # Linux Namespace
