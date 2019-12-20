@@ -3,9 +3,9 @@ layout: post
 title: "SkyWalking Agent 浅析"
 categories: DevOps
 ---
-## SkyWalking Agent 浅析
+# SkyWalking Agent 浅析
 
-### SkyWalking Agent 简介
+## SkyWalking Agent 简介
 
 SkyWalking是一个分布式APM（Application Performance Monitor）系统。
 
@@ -13,15 +13,15 @@ SkyWalking Agent是 SkyWalking Sniffer模块下，针对Java应用的无侵入�
 
 SkyWalking Agent采用微内核架构，通过插件形式扩展。
 
-### SkyWalking Agent 实现原理
+## SkyWalking Agent 实现原理
 
 SkyWalking Agent基于Java Instrumentation与字节码生成框架Byte Buddy。
 
-#### Java Instrumentation
+### Java Instrumentation
 
 Java Instrumentation基于JVMTI（JVM Tool Interface）。JVMTI是一套由Java虚拟机提供的，为JVM相关工具提供的本地API集合。Instrumentation最大的作用在于可以动态得更改类定义与其方法，运行时只能修改其方法体。JVM提供了javaagent参数，在运行main入口函数之前，执行基于Instrumentation的代理程序。
 
-##### Java Instrumentation 详细流程
+#### Java Instrumentation 详细流程
 
 a. JVM启动，读取到javaagent参数，初始化其指定的Jar包，调用其的Agent_OnLoad函数。
 
@@ -35,17 +35,17 @@ e. Agent初始化完毕后，JVM调用main函数。JVM运行过程中在ClassLoa
 
 以上就是Agent对代码无侵入的核心原理。
 
-#### Byte Buddy
+### Byte Buddy
 
 Byte Buddy是JVM字节码操作工具，可以通过简单易用的API接口，封装JVM字节码底层细节，提供动态修改类结构、定义的一款开源工具。
 
 Byte Buddy通过其自身生成字节码的能力，与Java Instrumentation的javaagent机制相结合，在应用的启动过程中按照自身需求，动态更改类定义，从而实现对应用进行无侵入探测的目标。
 
-#### SkyWalking Agent 实践
+### SkyWalking Agent 实践
 
 SkyWalking Agent是一个微内核架构模式。通过定义核心功能以及抽象核心接口，提供以插件形式集成服务的能力。
 
-##### SkyWalking Agent 微内核
+#### SkyWalking Agent 微内核
 
 SkyWalking Agent核心功能目标是：a. 获取动态增强的目标类，b. 获取该类具体增强目标，c. 类动态增强。
 
@@ -57,7 +57,7 @@ SkyWalking Agent提供AbstractClassEnhancePluginDefine，ClassEnhancePluginDefin
 
 通过InterceptPoint提供的拦截类，可以在方法执行前后对其进行拦截探测。
 
-### SkyWalking Agent 扩展
+## SkyWalking Agent 扩展
 
 如果我们需要对应用添加个性化的监控，通过自定义插件形式，继承上述ClassEnhancePluginDefine基类，重载对应关键接口，就可以通过SkyWalking Agent的内核，加载运行自己的自定义插件，完成对应用的无侵入探测。
 
