@@ -7,7 +7,7 @@ categories: Linux
 
 ## 简介
 
-Linux Namespace是**Linux内核**层面的一个特性，在进程层面对其可见的内核资源进行不同Namespace的进程间**隔离**。Linux Namespace主要目的是实现**轻量级进程虚拟化**服务。Linux Namespace的类型包括**Mount、PID、User、UTS、Network、IPC、Cgroup**，其余还有Security、Security Keys、Device等未实现的类型。Linux Namespace控制隔离的资源是操作系统层面的**虚拟资源**，还有另一种Cgroup机制控制CPU、Disk物理类型资源。
+Linux Namespace是**Linux内核**层面的一个特性，在进程层面对其可见的内核资源进行不同Namespace的进程间**隔离**。Linux Namespace主要目的是实现**轻量级进程虚拟化**服务。Linux Namespace的类型包括**Mount、PID、User、UTS、Network、IPC**，其余还有Security、Security Keys、Device等未实现的类型。Linux Namespace控制隔离的资源是操作系统层面的**虚拟资源**，还有另一种Cgroup机制控制CPU、Disk物理类型资源。
 
 ## 原理
 
